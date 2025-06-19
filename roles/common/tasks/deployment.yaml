@@ -20,8 +20,10 @@
     remote_src: yes
 
 - name: install dependencies
+  tags:
+    deployment
   community.general.npm:
-    path: /app
+  path: /app
 
 - name: Restart {{ component }}
   ansible.builtin.service:
