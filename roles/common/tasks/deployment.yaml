@@ -1,19 +1,27 @@
 - name: Stop the {{ component }} server
+  tags:
+    deployment
   ansible.builtin.service:
     name: catalogue
     state: stopped
 
 - name: removing /app directory
+  tags:
+    deployment
   ansible.builtin.file:
     path: /app
     state: absent
 
 - name: Creating /app directory
+  tags:
+    deployment
   ansible.builtin.file:
     path: /app
     state: directory
 
 - name: downloading and unzipping the code
+  # tags:
+  #   deployment
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v{{ app_version }}.zip
     dest: /app
@@ -28,4 +36,3 @@
     name: "{{ component }}"
     state: restarted
 
-    
