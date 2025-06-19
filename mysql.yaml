@@ -1,7 +1,7 @@
 - name: "Configuring {{ component }} server"
   hosts: "{{ component }}"
   become: yes
-  # var_files:
-  #   mysql.yaml
+  var_files:
+    mysql.yaml
   roles:
   - "{{ component }}"
