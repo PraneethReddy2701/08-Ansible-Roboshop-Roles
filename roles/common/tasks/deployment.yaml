@@ -6,15 +6,11 @@
     state: stopped
 
 - name: removing /app directory
-  tags:
-    deployment
   ansible.builtin.file:
     path: /app
     state: absent
 
 - name: Creating /app directory
-  tags:
-    deployment
   ansible.builtin.file:
     path: /app
     state: directory
