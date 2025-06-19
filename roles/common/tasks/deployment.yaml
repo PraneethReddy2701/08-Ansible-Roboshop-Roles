@@ -1,11 +1,8 @@
 - name: Stop the {{ component }} server
-  tags:
-    deployment
   ansible.builtin.service:
     name: catalogue
-  state: stopped
-  ignore_errors: true
-  ignore_unreachable: true
+    state: stopped
+
 
 - name: removing /app directory
   ansible.builtin.file:
