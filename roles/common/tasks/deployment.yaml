@@ -21,7 +21,8 @@
 
 - name: install dependencies
   community.general.npm:
-    path: /app
+  path: /app
+  ignore_errors: true
 
 - name: Restart {{ component }}
   ansible.builtin.service:
