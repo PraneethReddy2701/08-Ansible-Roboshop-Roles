@@ -14,7 +14,7 @@
     - cryptography
     - PyMySQL
 
-    - name: Download maven dependencies
+  - name: Download maven dependencies
     ansible.builtin.command: mvn clean package
     args:
       chdir: /app
