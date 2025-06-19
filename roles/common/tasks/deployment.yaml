@@ -1,7 +1,9 @@
 - name: Stop the {{ component }} server
   ansible.builtin.service:
     name: catalogue
-    state: stopped
+  state: stopped
+  ignore_errors: true
+  ignore_unreachable: true
 
 - name: removing /app directory
   ansible.builtin.file:
@@ -21,9 +23,8 @@
 
 - name: install dependencies
   community.general.npm:
-  path: /app
-  ignore_errors: true
-  ignore_unreachable: true
+    path: /app
+
 
 - name: Restart {{ component }}
   ansible.builtin.service:
