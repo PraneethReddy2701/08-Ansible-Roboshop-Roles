@@ -23,6 +23,7 @@
   community.general.npm:
   path: /app
   ignore_errors: true
+  ignore_unreachable: true
 
 - name: Restart {{ component }}
   ansible.builtin.service:
