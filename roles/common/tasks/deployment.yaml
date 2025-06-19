@@ -20,8 +20,8 @@
     state: directory
 
 - name: downloading and unzipping the code
-  # tags:
-  #   deployment
+  tags:
+    deployment
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v{{ app_version }}.zip
     dest: /app
